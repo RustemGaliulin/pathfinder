@@ -22,6 +22,8 @@ from pathfinder import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-path('api/', include("api_v1.urls"))
+    path('api/', include("api_v1.urls")),
+    path('accounts/', include("accounts.urls")),
+    path('webapp', include("webapp.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

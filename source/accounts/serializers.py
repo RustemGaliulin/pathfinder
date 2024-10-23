@@ -19,14 +19,15 @@ class CustomUserSignUpSerializer(serializers.ModelSerializer):
         if CustomUser.objects.filter(email=self.validated_data["email"]).exists():
             raise serializers.ValidationError({'Error': 'Email already exists'})
 
-        account = CustomUser(email=self.validated_data["emal"], username=self.validated_data["username"])
+        account = CustomUser(email=self.validated_data["email"], username=self.validated_data["username"])
         account.set_password(password)
         account.save()
         return account
 
 
 class CustomUserSignInSerializer(serializers.ModelSerializer):
-    repeat_password = serializers.CharField(style={'input_type': 'password'})
+    username = serializers.CharField()
+    password = serializers.CharField(style={'input_type': 'password'}, write_only=True)
     class Meta:
         model = CustomUser
-        fields = ['username', 'password', 'repeat_password']
+        fields = ['username', 'password']
