@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     "accounts",
     "char",
-    "api_v1"
+    "api_v1",
+    "skills.apps.SkillsConfig"
 ]
 
 MIDDLEWARE = [
