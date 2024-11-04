@@ -1,9 +1,9 @@
 
 from django.urls import path
 
-from webapp.views import TestView
+from char.views import TestView
 
-app_name = 'webapp'
+app_name = 'char'
 
 urlpatterns = [
     path('', TestView.as_view(), name='test'),
