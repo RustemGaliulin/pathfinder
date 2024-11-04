@@ -1,10 +1,9 @@
 from django.db import models
 
-from char.models.char_model import Character
 
 
-class Abilities(models.Model):
-    character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name='abilities', blank=False)
+
+class AbilitiesModel(models.Model):
     strength = models.IntegerField(default=10)
     dexterity = models.IntegerField(default=10)
     constitution = models.IntegerField(default=10)
