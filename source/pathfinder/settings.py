@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "accounts",
     "char",
     "api_v1",
-    "skills.apps.SkillsConfig"
+    "skills.apps.SkillsConfig",
+    "items.apps.ItemsConfig"
 ]
 
 MIDDLEWARE = [
