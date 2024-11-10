@@ -9,3 +9,4 @@ class ItemModel(models.Model):
     bulk = models.IntegerField()
     # item_damage = models.DecimalField(max_digits=10, decimal_places=) needs to be defined
     shoddy = models.BooleanField()
+    descriptors = models.ManyToManyField('items.DescriptorModel', related_name='items')
