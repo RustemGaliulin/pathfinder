@@ -37,5 +37,6 @@ class CharacterModel(models.Model):
                                  default=Alignment.TRUE_NEUTRAL)
     saving_throw_notes = models.CharField()
     background = models.ForeignKey(BackgroundModel, on_delete=models.DO_NOTHING, blank=True, null=True)
-    # deity = models.ForeignKey() - after deity model
+    deity = models.ForeignKey('deity.DeityModel', on_delete=models.DO_NOTHING)
+
 

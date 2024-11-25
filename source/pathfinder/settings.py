@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "char",
     "api_v1",
     "skills.apps.SkillsConfig",
-    "items.apps.ItemsConfig"
+    "items.apps.ItemsConfig",
+    "deity.apps.DeityConfig"
 ]
 
 MIDDLEWARE = [
