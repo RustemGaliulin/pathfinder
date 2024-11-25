@@ -3,6 +3,7 @@ from django.db import models
 
 from accounts.models import CustomUser
 from char.models import AbilitiesModel
+from char.models.background_model import BackgroundModel
 from char.models.size_model import SizeModel
 from char.models.health_model import HealthModel
 from char.models.race_model import RaceModel
@@ -29,10 +30,12 @@ class CharacterModel(models.Model):
     race = models.ForeignKey(RaceModel, on_delete=models.DO_NOTHING, related_name='character', blank=False, null=False)
     abilities = models.ForeignKey(AbilitiesModel, on_delete=models.DO_NOTHING, related_name='character')
     health = models.ForeignKey(HealthModel, on_delete=models.DO_NOTHING, related_name='character')
-    # heritage = models.ForeignKey - after heritage model
+    heritage = models.ForeignKey("char.HeritageModel", on_delete=models.DO_NOTHING, related_name='chars')
     # char_class = models.ForeignKey - after class model
     size = models.ForeignKey(SizeModel, on_delete=models.DO_NOTHING, related_name='character')
     alignment = models.CharField(max_length=2, blank=True, null=True, choices=Alignment.choices,
                                  default=Alignment.TRUE_NEUTRAL)
+    saving_throw_notes = models.CharField()
+    background = models.ForeignKey(BackgroundModel, on_delete=models.DO_NOTHING, blank=True, null=True)
     # deity = models.ForeignKey() - after deity model
 
