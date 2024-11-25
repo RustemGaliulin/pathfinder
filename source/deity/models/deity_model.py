@@ -13,14 +13,12 @@ class DeityModel(models.Model):
     areas_of_concern = models.TextField()
     pantheons = models.TextField()
     followers_alignment = models.CharField(max_length=2, blank=True, null=True, choices=Alignment.choices)
-    allies = models.ManyToManyField('self', on_delete=models.DO_NOTHING, related_name='ally')
-    enemies = models.ManyToManyField('self', on_delete=models.DO_NOTHING, related_name='enemy')
+    allies = models.ManyToManyField('self')
+    enemies = models.ManyToManyField('self')
     # relationship - not sure if needed
     devotees = models.TextField(blank=True)
     animal = models.CharField(blank=True)
-    devotee_benefits = models.TextField("deity.devotee_benefits", on_delete=models.DO_NOTHING, blank=True)
-    divine_intercession = models.TextField("deity.divine_intercession")
-
-
-
-
+    devotee_benefits = models.ForeignKey("deity.DevoteeBenefitModel", on_delete=models.DO_NOTHING, blank=True,
+                                         null=True)
+    divine_intercession = models.ForeignKey("deity.DivineIntercessionModel", on_delete=models.DO_NOTHING, blank=True,
+                                            null=True)

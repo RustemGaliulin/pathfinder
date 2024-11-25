@@ -30,13 +30,12 @@ class CharacterModel(models.Model):
     race = models.ForeignKey(RaceModel, on_delete=models.DO_NOTHING, related_name='character', blank=False, null=False)
     abilities = models.ForeignKey(AbilitiesModel, on_delete=models.DO_NOTHING, related_name='character')
     health = models.ForeignKey(HealthModel, on_delete=models.DO_NOTHING, related_name='character')
-    heritage = models.ForeignKey("char.HeritageModel", on_delete=models.DO_NOTHING, related_name='chars')
+    heritage = models.ForeignKey("char.HeritageModel", on_delete=models.DO_NOTHING, related_name='chars', blank=True,
+                                 null=True)
     # char_class = models.ForeignKey - after class model
     size = models.ForeignKey(SizeModel, on_delete=models.DO_NOTHING, related_name='character')
     alignment = models.CharField(max_length=2, blank=True, null=True, choices=Alignment.choices,
                                  default=Alignment.TRUE_NEUTRAL)
-    saving_throw_notes = models.CharField()
+    saving_throw_notes = models.CharField(blank=True, null=True)
     background = models.ForeignKey(BackgroundModel, on_delete=models.DO_NOTHING, blank=True, null=True)
-    deity = models.ForeignKey('deity.DeityModel', on_delete=models.DO_NOTHING)
-
-
+    deity = models.ForeignKey('deity.DeityModel', on_delete=models.DO_NOTHING, blank=True, null=True)
