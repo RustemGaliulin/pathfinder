@@ -1,0 +1,32 @@
+#sheet {
+    background-image: url("../img/sheet_background.jpg");
+    font-family: 'Garamond', serif;
+}
+
+.field {
+    background-color: white;
+}
+
+.border-dark {
+    border-color: #5b3924 !important; /* Dark brown for borders */
+}
+.logo-placeholder {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fw-bold {
+    color: #1f1f1f;
+    font-size: 12px;
+}
+.skills p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+h6 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin: 0;
+}
